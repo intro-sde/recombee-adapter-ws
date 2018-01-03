@@ -39,7 +39,7 @@ public class RecommendationResource {
 		System.out.println("--> RecommendationResource request...");
 		System.out.println("--> URI = "+uriInfo);
 		System.out.println("--> request = "+request);
-		Recommendation[] recommendations =UserBasedRec.recommend(userid, Integer.parseInt(count));
+		Recommendation[] recommendations =UserBasedRec.recommend(userid, Integer.parseInt(count), filter);
 		return recommendations;
 	}
 	
@@ -51,7 +51,7 @@ public class RecommendationResource {
 		System.out.println("--> RecommendationResource request...");
 		System.out.println("--> URI = "+uriInfo);
 		System.out.println("--> request = "+request);
-		Recommendation[] recommendations =ItemBasedRec.recommend(itemId, Integer.parseInt(count) , targetUserId);
+		Recommendation[] recommendations =ItemBasedRec.recommend(itemId, Integer.parseInt(count) , targetUserId, filter);
 		return recommendations;
 	}
 }
