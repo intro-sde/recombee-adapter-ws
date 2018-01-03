@@ -8,14 +8,20 @@ import com.recombee.api_client.exceptions.ApiException;
 import rest.connection.Connection;
 
 public class UserBasedRec {
-	static Connection conn = new Connection();
-	static RecombeeClient client = conn.createRecombeeClient();
+	static RecombeeClient client = Connection.createRecombeeClient();
 	
-	public static Recommendation[] recommend(String userId, int count, String filter, boolean returnProperties) throws ApiException {
+	public static Recommendation[] recommend(String userId, int count, String filter) throws ApiException {
 		Recommendation [] result = client.send(new UserBasedRecommendation(userId, count)
 			  .setFilter(filter)
 			  .setScenario("user-based")
-			  .setReturnProperties(returnProperties));
+			  .setReturnProperties(true));
+		return result;
+	}
+
+	public static Recommendation[] recommend(String userId, int count) throws ApiException {
+		Recommendation [] result = client.send(new UserBasedRecommendation(userId, count)
+				  .setReturnProperties(true)
+				  .setScenario("user-based"));
 		return result;
 	}
 }
