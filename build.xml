@@ -15,7 +15,7 @@
        # The target "download-ivy" and "install-ivy" will download the ivy jar and place it in the "ivy" folder
        # 
 -->
-<project name="recommendation" default="compile" basedir="." xmlns:ivy="antlib:org.apache.ivy.ant">
+<project name="recombee-adapter" default="compile" basedir="." xmlns:ivy="antlib:org.apache.ivy.ant">
 
 	<!-- PART 1: Ivy properties, download, installation and configuration -->
 	<property name="ivy.install.version" value="2.4.0" />
@@ -115,7 +115,7 @@
 
 	<!-- make sure you have created first the WebContent folder, including a META-INF folder, WEB-INF/web.xml file and WEB-INF/lib folder --> 
 	<target name="create.war" depends="compile">
-		<war destfile="recommendation.war" webxml="${web.dir}/WebContent/WEB-INF/web.xml">
+		<war destfile="recombee-adapter.war" webxml="${web.dir}/WebContent/WEB-INF/web.xml">
 			<fileset dir="${web.dir}/WebContent">
 				<include name="**/*.*"/>
 			</fileset>
@@ -126,7 +126,7 @@
 	<!-- CHANGE THIS PROPERTY TO THE CORRECT PLACE OF THE APACHE TOMCAT HOME --> 
 	<property name="apache.dir" value="/var/lib/tomcat8/" />	
 	<target name="apache.deploy.war" depends="create.war">
-		<copy file="${web.dir}/recommendation.war"
+		<copy file="${web.dir}/recombee-adapter.war"
 	    	toDir="${apache.dir}/webapps"
 	        overwrite="yes">  
 	    </copy>

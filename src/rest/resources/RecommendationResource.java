@@ -21,7 +21,7 @@ import rest.recommendation.UserBasedRec;
 
 @Stateless
 @LocalBean
-@Path("/recommendation")
+@Path("/recombee/recommendation")
 public class RecommendationResource {
 	
 	@Context
