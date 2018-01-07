@@ -1,11 +1,14 @@
 # Recombee recommendation adapter service
 RESTful adapter service based that connects with the Recombee API. Responses in JSON.
 
-How to use? 
-- for item-based recommendation: http://{base_url}/recombee/recommendation/item_based?itemId=002i&count=1&userId=001u
+The following methods are available for http://{base_url}/recombee/recommendation/ endpoint:
+- /item_based @GET | [itemId, count, userId, filter] | Returns a number of item based recommendation with respect to item with given id and considering filter, which is a ReQL query.
 	- response: [{"id":"002i","values":{"itemId":"002i","item-name":"other-item"}}]
-- for user-based recommendation: http://{base_url}/recombee/recommendation/user_based?userId=001u&count=1
+- /user-based @GET | [userId, count, filter] | Returns a number of user based recommendation with respect to user with given id and considering filter, which is a ReQL query. 
 	- response: [{"id":"002i","values":{"itemId":"002i","item-name":"other-item"}}]
 
+
+Reference:
+Recombee API (version 1.6.0), Available at: https://docs.recombee.com/api.html.
 
 
