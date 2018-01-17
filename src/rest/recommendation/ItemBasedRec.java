@@ -11,10 +11,11 @@ public class ItemBasedRec {
 	static RecombeeClient client = Connection.createRecombeeClient();
 	
 	
-	public static Recommendation[] recommend(String itemId, int count, String targetUserId, String filter) throws ApiException {
+	public static Recommendation[] recommend(String itemId, int count, String targetUserId, double userImpact, String filter) throws ApiException {
 		Recommendation[] result = client.send(new ItemBasedRecommendation(itemId, count)
 				.setTargetUserId(targetUserId)
 				.setFilter(filter)
+				.setUserImpact(userImpact)
 				.setScenario("item-based")
 				.setReturnProperties(true));
 		return result;	

@@ -46,11 +46,11 @@ public class RecommendationResource {
 	@GET
 	@Produces({MediaType.TEXT_XML,MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
 	@Path("/item_based")
-	public Recommendation[] itemBasedRecommendation(@DefaultValue("")@QueryParam("itemId") String itemId, @DefaultValue("")@QueryParam("count") String count, @QueryParam("userId") String targetUserId, @DefaultValue("")@QueryParam("filter") String filter) throws ApiException {
+	public Recommendation[] itemBasedRecommendation(@DefaultValue("")@QueryParam("itemId") String itemId, @DefaultValue("")@QueryParam("count") String count, @QueryParam("userId") String targetUserId, @QueryParam("userImpact") String userImpact, @QueryParam("filter") String filter) throws ApiException {
 		System.out.println("--> RecommendationResource request...");
 		System.out.println("--> URI = "+uriInfo);
 		System.out.println("--> request = "+request);
-		Recommendation[] recommendations =ItemBasedRec.recommend(itemId, Integer.parseInt(count) , targetUserId, filter);
+		Recommendation[] recommendations =ItemBasedRec.recommend(itemId, Integer.parseInt(count) , targetUserId, Double.parseDouble(userImpact), filter);
 		return recommendations;
 	}
 }
