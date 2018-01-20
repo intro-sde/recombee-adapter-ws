@@ -10,11 +10,12 @@ import rest.connection.Connection;
 public class UserBasedRec {
 	static RecombeeClient client = Connection.createRecombeeClient();
 	
-	public static Recommendation[] recommend(String userId, int count, String filter) throws ApiException {
+	public static Recommendation[] recommend(String userId, int count, String filter,  String[] includedProperties) throws ApiException {
 		Recommendation [] result = client.send(new UserBasedRecommendation(userId, count)
 			  .setFilter(filter)
 			  .setScenario("user-based")
-			  .setReturnProperties(true));
+			  .setReturnProperties(true)
+			  .setIncludedProperties(includedProperties));
 		return result;
 	}
 
