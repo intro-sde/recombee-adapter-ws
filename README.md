@@ -7,6 +7,6 @@ The following methods are available for https://sde-recombee-adapter-ws.herokuap
 
 
 Reference:
-Recombee API (version 1.6.0), Available at: https://docs.recombee.com/api.html.
+Recombee API (version 1.6.0), Available at: https://docs.recombee.com/api.html
 
 
